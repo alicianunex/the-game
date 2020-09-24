@@ -2,17 +2,21 @@
   box-sizing: border-box;
 }
 
-img {
-  display: block;
-  height: auto;
-  max-width: 100%;
-}
-
-picture {
-  display: block;
-}
-
 body {
   font-size: 100%;
-  background-color: aquamarine;
+  background-color: rgba(50, 56, 68, 0.267) margin auto;
+  text-align: center;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  border: solid 4px;
+  width: 600px;
+  height: 600px;
+}
+
+.grid div {
+  width: 20px;
+  height: 20px;
 }
