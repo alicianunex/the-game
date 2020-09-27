@@ -13,16 +13,25 @@ body {
 .grid {
   display: flex;
   flex-wrap: wrap;
+
   border: ridge rgba(193, 194, 188, 0.664) 6px;
+
+  border: solid 4px;
+
   height: 100%;
   justify-content: center;
   height: 600px;
   width: 600px;
+
   background-image: url(../imagenes/fondo2.jpg);
+
+  background-image: url(../imagenes/wallpaper2you_29036.png);
+
   background-size: cover;
   align-items: center;
   justify-content: center;
   padding: 30px;
+
   margin-left: 110px;
 }
 .grid div {
@@ -36,4 +45,12 @@ h1 {
   background-color: rgba(245, 245, 220, 0.466);
   font-variant: small-caps;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  margin-left: 50px;
+}
+.grid div {
+  border: 1px solid lightgrey;
+  height: 52px;
+  width: 52px;
+
 }

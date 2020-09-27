@@ -10,4 +10,5 @@ for (let index = 0; index < cellCount; index = index + 1) {
   grid.appendChild(cell);
 }
 
+
 console.log('Hola');
