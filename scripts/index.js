@@ -9,3 +9,6 @@ for (let index = 0; index < cellCount; index = index + 1) {
   cell.innerText = index;
   grid.appendChild(cell);
 }
+
+
+console.log('Hola');
