@@ -4,6 +4,7 @@ const height = 10;
 const cellCount = width * height;
 const grid = document.querySelector('.grid');
 const cells = [];
+
 for (let index = 0; index < cellCount; index = index + 1) {
   console.log(index);
   const cell = document.createElement('div');
@@ -49,51 +50,30 @@ window.addEventListener('keyup', handleKeyPress);
 
 // alien
 
-let alienPosition = 54;
+class Alien {
+  constructor(initialPosition) {
+    this.initialPosition = initialPosition;
+  }
+
+  addAlienToBoard() {
+    cells[this.initialPosition].classList.add('alien');
+  }
+}
+
+const initialAlienPositions = [40, 50, 51, 52, 53, 54, 58, 59];
 
 const addalien = (index) => cells[index].classList.add('alien');
 const removealien = (index) => cells[index].classList.remove('alien');
 
-const x = alienPosition % 10;
-const y = Math.floor(alienPosition / 10);
+const addAliensToBoard = (initialPosition) => {
+  const alien = new Alien(initialPosition);
+  alien.addAlienToBoard();
+};
 
-addalien(alienPosition);
+initialAlienPositions.forEach(addAliensToBoard);
 
-//drawing alien
+const alicia = new Alien(1);
+alicia.addAlienToBoard();
 
-// const alien = [];
-const alien = [new Alien()];
-
-class Alien {
-  constructor(Alien) {
-    this.alien = new Alien();
-  }
-}
-
-for (let row = 0; row < 5; roww++) {
-  for (let col = 0; col < 11; col++) {
-    const alien = new Alien({
-      x: col * 60 + 50,
-      y: row * 60 + 50,
-    });
-    alien.push(Alien);
-  }
-}
-
-// alien.forEach(alien);
-// cells[currentalienIndex + alien].classList.add('alien');
-
-// AudioSource audio;
-
-// void Start();{
-//   audio = GetComponet<AudioSource>();
-// };
-
-// void Update();
-// {
-//   if (Input.GetKeyDown(KeyCode.M))
-//     if (audio.mute)
-//       audio.mute = false;
-//     else
-//       audio.mute = true;
-// }
+const pedro = new Alien(10);
+pedro.addAlienToBoard();
