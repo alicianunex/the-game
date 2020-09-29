@@ -89,32 +89,24 @@ class Alien {
     cells[position].classList.add('alien');
   }
 
-  removeToBoard(position) {
+  removeFromBoard(position) {
     cells[position].classList.remove('alien');
   }
 
   renderposition() {
     this.addToBoard(this.position);
   }
-
-  moveRight() {
-    this.removeToBoard(this.position);
-    console.log('posicion antes de moverse ==> ', this.position);
-    this.position = this.position + 1;
-    console.log('posicion despues de moverse ==> ', this.position);
-    this.addToBoard(this.position);
-  }
 }
 
-const initialAlienPositions = [42, 43, 44, 44, 46, 47, 52, 53, 54, 55, 56, 57];
+let alienPositions = [42, 43, 44, 44, 46, 47, 52, 53, 54, 55, 56, 57];
 
 const addalien = (index) => cells[index].classList.add('alien');
 const removealien = (index) => cells[index].classList.remove('alien');
 
-const aliens = [];
+let aliens = [];
 
 // 3.1 Ejecuta la funcion addAliensToBoard por cada uno de las posiciones dentro
-// de la colección(array) initialAlienPositions
+// de la colección(array) alienPositions
 const addAliensToBoard = (initialPosition) => {
   // 3.2 Crea un objeto desde la plantilla Alien
   // y lo agrega como valor a  una constante llamada alien
@@ -126,19 +118,45 @@ const addAliensToBoard = (initialPosition) => {
 };
 
 // 3 Imprimie aliens en pantalla
-initialAlienPositions.forEach(addAliensToBoard);
+alienPositions.forEach(addAliensToBoard);
 
-const moveAliensToRight = (alien) => {
-  alien.moveRight();
-  alien.moveRight();
-  alien.moveRight();
-  alien.moveRight();
-  alien.moveRight();
+const moveToRight = () => {
+  const newAlienPositions = [];
+  aliens.forEach((alien) => {
+    alien.removeFromBoard(alien.position);
+    newAlienPositions.push(alien.position + 1);
+  });
+
+  aliens = [];
+  newAlienPositions.forEach(addAliensToBoard);
 };
 
-console.log(aliens);
+const moveToLeft = () => {
+  const newAlienPositions = [];
+  aliens.forEach((alien) => {
+    alien.removeFromBoard(alien.position);
+    newAlienPositions.push(alien.position - 1);
+  });
 
-aliens.forEach(moveAliensToRight);
+  aliens = [];
+  newAlienPositions.forEach(addAliensToBoard);
+};
+
+const getRandomNumber = () => Math.floor(Math.random() * (10 - 1 + 1) + 1);
+
+const isEven = (number) => (number % 2 ? true : false);
+
+const randomMovement = () => {
+  const randomNumber = getRandomNumber();
+
+  if (isEven(randomNumber)) {
+    moveToRight();
+  } else {
+    moveToLeft();
+  }
+};
+
+setInterval(randomMovement, 1000);
 
 // TODO:
 // Mover aliens en conjunto
