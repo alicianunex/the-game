@@ -6,11 +6,7 @@ body {
   font-size: 100%;
   text-align: center;
   display: flex;
-<<<<<<< HEAD
-  background-image: url(../imagenes/wp2860864-pokemon-gameboy-wallpaper.gif);
-=======
   background-image: url(../imagenes/fondopokemon2.png);
->>>>>>> 316f9b4... hola pedro
   background-size: cover;
 }
 
