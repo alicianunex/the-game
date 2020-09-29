@@ -6,27 +6,57 @@ body {
   font-size: 100%;
   text-align: center;
   display: flex;
+<<<<<<< HEAD
   background-image: url(../imagenes/wp2860864-pokemon-gameboy-wallpaper.gif);
+=======
+  background-image: url(../imagenes/fondopokemon2.png);
+>>>>>>> 316f9b4... hola pedro
   background-size: cover;
 }
 
 .grid {
   display: flex;
   flex-wrap: wrap;
-  border: solid 4px;
+  border: ridge rgba(163, 183, 202, 0.664) 6px;
   height: 100%;
   justify-content: center;
   height: 600px;
   width: 600px;
-  background-image: url(../imagenes/wallpaper2you_29036.png);
-  background-size: cover;
+  background-image: url(../imagenes/fondo4.jpg);
   align-items: center;
   justify-content: center;
+  background-size: cover;
   padding: 30px;
-  margin-left: 50px;
+  margin-left: 110px;
 }
 .grid div {
   border: 1px solid lightgrey;
   height: 52px;
   width: 52px;
+}
+
+h1 {
+  background-attachment: fixed;
+  background-color: rgba(100, 115, 134, 0.486);
+  font-variant: small-caps;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.grid div.shooter {
+  background-image: url('../imagenes/shooter.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.grid div.alien {
+  background-image: url('../imagenes/alien5.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.grid div.laser {
+  background-image: url('../imagenes/laser.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
