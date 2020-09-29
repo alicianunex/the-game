@@ -81,8 +81,8 @@ window.addEventListener('keyup', handleKeyPress);
 /**************************************** */
 
 class Alien {
-  constructor(initialPosition) {
-    this.initialPosition = initialPosition;
+  constructor(position) {
+    this.position = position;
   }
 
   addToBoard(position) {
@@ -93,15 +93,25 @@ class Alien {
     cells[position].classList.remove('alien');
   }
 
-  renderInitialPosition() {
-    this.addToBoard(this.initialPosition);
+  renderposition() {
+    this.addToBoard(this.position);
+  }
+
+  moveRight() {
+    this.removeToBoard(this.position);
+    console.log('posicion antes de moverse ==> ', this.position);
+    this.position = this.position + 1;
+    console.log('posicion despues de moverse ==> ', this.position);
+    this.addToBoard(this.position);
   }
 }
 
-const initialAlienPositions = [40, 50, 51, 52, 53, 54, 58, 59];
+const initialAlienPositions = [42, 43, 44, 44, 46, 47, 52, 53, 54, 55, 56, 57];
 
 const addalien = (index) => cells[index].classList.add('alien');
 const removealien = (index) => cells[index].classList.remove('alien');
+
+const aliens = [];
 
 // 3.1 Ejecuta la funcion addAliensToBoard por cada uno de las posiciones dentro
 // de la colección(array) initialAlienPositions
@@ -110,8 +120,28 @@ const addAliensToBoard = (initialPosition) => {
   // y lo agrega como valor a  una constante llamada alien
   const alien = new Alien(initialPosition);
   //3.3 Llama al metodo addToBoard del objeto alien
-  alien.renderInitialPosition();
+  alien.renderposition();
+
+  aliens.push(alien);
 };
 
 // 3 Imprimie aliens en pantalla
 initialAlienPositions.forEach(addAliensToBoard);
+
+const moveAliensToRight = (alien) => {
+  alien.moveRight();
+  alien.moveRight();
+  alien.moveRight();
+  alien.moveRight();
+  alien.moveRight();
+};
+
+console.log(aliens);
+
+aliens.forEach(moveAliensToRight);
+
+// TODO:
+// Mover aliens en conjunto
+// Disparar laser
+// Desaparecer aliens cuando sean disparados
+// Score
