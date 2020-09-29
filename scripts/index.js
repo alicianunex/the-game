@@ -98,7 +98,7 @@ class Alien {
   }
 }
 
-let alienPositions = [42, 43, 44, 44, 46, 47, 52, 53, 54, 55, 56, 57];
+let alienPositions = [42, 43, 44, 45, 46, 47, 52, 53, 54, 55, 56, 57];
 
 const addalien = (index) => cells[index].classList.add('alien');
 const removealien = (index) => cells[index].classList.remove('alien');
@@ -120,46 +120,77 @@ const addAliensToBoard = (initialPosition) => {
 // 3 Imprimie aliens en pantalla
 alienPositions.forEach(addAliensToBoard);
 
-const moveToRight = () => {
-  const newAlienPositions = [];
-  aliens.forEach((alien) => {
-    alien.removeFromBoard(alien.position);
-    newAlienPositions.push(alien.position + 1);
-  });
+/**************************************** */
+// Mover aliens en conjunto
+/**************************************** */
 
-  aliens = [];
-  newAlienPositions.forEach(addAliensToBoard);
+// 4. Para tener el efecto de que los aliens se mueven debo:
+const moveToRight = () => {
+  // 4.1 Crear un un nuevo array con las nuevas posiciones,
+  // para luego sustuir el valor de las posiciones iniciales que vienen del array alienPositions con nuevas posiciones
+  const newAlienPositions = [];
+  // como me muevo a la derecha, debo saber cual es el valor de la posicion mas alta
+  const rightPosition = aliens[aliens.length - 1].position;
+  // para evaluar si la posicion esta al margen uso las mismas condiciones que hice para handleKey function (linea 50)
+  const x = rightPosition % 10;
+  if (x < width - 1) {
+    // Si estroy dentro del margen derecho
+    aliens.forEach((alien) => {
+      // Remuevo todos los aliens anteriores
+      alien.removeFromBoard(alien.position);
+      // adigno valores de nuevas posiciones al array newAlienPositions
+      newAlienPositions.push(alien.position + 1);
+    });
+    // Reseteo aliens
+    aliens = [];
+    // Agrego nuesvos aliens al tablero y los incorporo al array alien (linea 117)
+    newAlienPositions.forEach(addAliensToBoard);
+  }
 };
 
+// Igual que moveToRight, solo cambia los valores de margen y ce nueva posicion
 const moveToLeft = () => {
   const newAlienPositions = [];
-  aliens.forEach((alien) => {
-    alien.removeFromBoard(alien.position);
-    newAlienPositions.push(alien.position - 1);
-  });
+  const leftPosition = aliens[0].position;
+  const x = leftPosition % 10;
 
-  aliens = [];
-  newAlienPositions.forEach(addAliensToBoard);
+  if (x > 0) {
+    aliens.forEach((alien) => {
+      alien.removeFromBoard(alien.position);
+      newAlienPositions.push(alien.position - 1);
+    });
+
+    aliens = [];
+
+    newAlienPositions.forEach(addAliensToBoard);
+  }
 };
 
+// Crea un numero aleatorio entre 1 y 10
 const getRandomNumber = () => Math.floor(Math.random() * (10 - 1 + 1) + 1);
 
+// Evalue si el numero es par
 const isEven = (number) => (number % 2 ? true : false);
 
 const randomMovement = () => {
+  // Genera un numero aleatorio
   const randomNumber = getRandomNumber();
 
+  // Evalua si es par
   if (isEven(randomNumber)) {
+    // Si es par mueve a la derecha
     moveToRight();
   } else {
+    // Si es inpar mueve a la izquierda
     moveToLeft();
   }
 };
 
-setInterval(randomMovement, 1000);
+// Ejecuta la funcion randomMovement cada cierto milisegundos
+setInterval(randomMovement, 500);
 
 // TODO:
-// Mover aliens en conjunto
+
 // Disparar laser
 // Desaparecer aliens cuando sean disparados
 // Score
