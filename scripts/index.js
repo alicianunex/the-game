@@ -169,7 +169,7 @@ const moveToRight = () => {
     aliens.forEach((alien) => {
       // Remuevo todos los aliens anteriores
       alien.removeFromBoard(alien.position);
-      // adigno valores de nuevas posiciones al array newAlienPositions
+      // asigno valores de nuevas posiciones al array newAlienPositions
       newAlienPositions.push(alien.position + 1);
     });
     // Reseteo aliens
@@ -224,35 +224,75 @@ setInterval(randomMovement, 400);
 // Laser
 /**************************************** */
 
-let lasertiming = 300;
+const getAlienPositions = () => {
+  const alienPositions = aliens.map((alien) => {
+    return alien.position;
+  });
 
-var laserPosition = 'laser';
-laserPosition; // arr
+  return alienPositions;
+};
 
-function laser(event) {
-  let laserPosition = alienPositions;
-  const { key } = event;
-  // console.log(event.key);
+let score = 0;
 
-  switch (key) {
-    case 'w':
-      setInterval(() => {
-        removelaser(laserPosition);
-        laserPosition -= width;
-        addlaser(laserPosition);
-        console.log('laser');
-      }, 300);
+const sumPointsToScore = () => {
+  score = score + 100;
+  console.log({ score });
+};
+
+class Laser {
+  constructor(position) {
+    this.position = position;
+    this.intervalId = null;
+    this.renderposition();
+    this.move();
+  }
+
+  addToBoard(position) {
+    cells[position].classList.add('laser');
+  }
+
+  removeFromBoard(position) {
+    cells[position].classList.remove('laser');
+  }
+
+  renderposition() {
+    this.addToBoard(this.position);
+  }
+
+  newPosition() {
+    const newPosition = this.position - height;
+    const alienPositions = getAlienPositions();
+    const isPositionAnAlien = alienPositions.includes(newPosition);
+
+    if (newPosition >= 0) {
+      this.removeFromBoard(this.position);
+      this.position = newPosition;
+      this.addToBoard(this.position);
+    } else {
+      clearInterval(this.intervalId);
+      this.removeFromBoard(this.position);
+    }
+
+    if (isPositionAnAlien) {
+      const alienToKillIndex = alienPositions.indexOf(newPosition);
+      aliens.splice(alienToKillIndex, 1);
+      clearInterval(this.intervalId);
+      this.removeFromBoard(newPosition);
+      sumPointsToScore();
+    }
+  }
+
+  move() {
+    this.intervalId = setInterval(this.newPosition.bind(this), 300);
   }
 }
 
-console.log(laserPosition);
+const handleSpaceBarKeyPress = (event) => {
+  const key = event.code;
+  if (key === 'Space') {
+    const laserInitialPosition = shooterPosition - height;
+    new Laser(laserInitialPosition);
+  }
+};
 
-const addlaser = (index) => cells[index].classList.add('laser');
-const removelaser = (index) => cells[index].classList.remove('laser');
-
-window.addEventListener('keypress', laser);
-
-// TODO:
-
-// Desaparecer aliens cuando sean disparados
-// Score
+window.addEventListener('keyup', handleSpaceBarKeyPress);
