@@ -6,6 +6,7 @@ const height = 10;
 const cellCount = width * height;
 const grid = document.querySelector('.grid');
 const cells = [];
+const score = document.querySelector('span');
 
 // 1. Cuenta de 0 a 100, por cada cuenta hace lo siguiente:
 for (let index = 0; index < cellCount; index = index + 1) {
@@ -230,13 +231,6 @@ const getAlienPositions = () => {
   });
 
   return alienPositions;
-};
-
-let score = 0;
-
-const sumPointsToScore = () => {
-  score = score + 100;
-  console.log({ score });
 };
 
 class Laser {

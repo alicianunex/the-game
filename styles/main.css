@@ -25,10 +25,8 @@ body {
   background-size: cover;
   padding: 30px;
   margin-left: 110px;
-  @media screen and (min-width: 700px) and (orientation: landscape) {
-    ...;
-  }
 }
+
 .grid div {
   border: 1px solid lightgrey;
   height: 52px;
@@ -61,4 +59,7 @@ h1 {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+}
+
+@media screen and (max-width: 600px) and (orientation: landscape) {
 }
