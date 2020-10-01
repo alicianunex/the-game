@@ -232,6 +232,13 @@ const getAlienPositions = () => {
   return alienPositions;
 };
 
+let score = 0;
+
+const sumPointsToScore = () => {
+  score = score + 100;
+  console.log({ score });
+};
+
 class Laser {
   constructor(position) {
     this.position = position;
@@ -271,6 +278,7 @@ class Laser {
       aliens.splice(alienToKillIndex, 1);
       clearInterval(this.intervalId);
       this.removeFromBoard(newPosition);
+      sumPointsToScore();
     }
   }
 
@@ -281,13 +289,9 @@ class Laser {
 
 const handleSpaceBarKeyPress = (event) => {
   const key = event.code;
-
   if (key === 'Space') {
-    console.log({ shooterPosition });
-
     const laserInitialPosition = shooterPosition - height;
-
-    const laser = new Laser(laserInitialPosition);
+    new Laser(laserInitialPosition);
   }
 };
 
