@@ -8,7 +8,10 @@ This is the classic Space Invaders Pokemon styled
 
 HTLM CSS JS and lots of love
 
-### How to install
+### How to play
+
+Press SpaceBar to shoot and 
+⬅️ ➡️ to move 
 
 ### How to run
 
