@@ -54,6 +54,18 @@ h1 {
   background-size: contain;
 }
 
+.grid div.alien:nth-of-type(odd) {
+  background-image: url('../imagenes/alien2.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.grid div.alien:nth-of-type(even) {
+  background-image: url('../imagenes/alien1.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .grid div.laser {
   background-image: url('../imagenes/laser.png');
   background-repeat: no-repeat;
