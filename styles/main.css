@@ -4,6 +4,7 @@
 
 body {
   font-size: 100%;
+  /* position: sticky; */
   text-align: center;
   display: flex;
   background-image: url(../imagenes/fondopokemon2.png);
@@ -33,7 +34,7 @@ body {
 
 h1 {
   background-attachment: fixed;
-  background-color: rgba(100, 115, 134, 0.486);
+  background-color: rgba(95, 114, 139, 0.514);
   font-variant: small-caps;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -46,7 +47,7 @@ h1 {
 }
 
 .grid div.alien {
-  background-image: url('../imagenes/alien5.png');
+  background-image: url('../imagenes/alien3.png');
   background-repeat: no-repeat;
   background-size: contain;
 }
