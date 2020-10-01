@@ -18,4 +18,4 @@ Press SpaceBar to shoot and
 
 [requirements](./docs/readme.md)
 
-(./imagenes/title.png)
+
