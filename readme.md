@@ -13,7 +13,6 @@ HTLM CSS JS and lots of love
 Press SpaceBar to shoot and 
 ⬅️ ➡️ to move 
 
-### How to run
 
 ## Documentation
 
