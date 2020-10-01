@@ -224,83 +224,54 @@ setInterval(randomMovement, 400);
 // Laser
 /**************************************** */
 
-// function shoot() {
-//   let laserId;
-//   let currentLaser = currentShooterIndex;
-//   let lasertiming = 300;
-// }
-// function moveLaser() {
-//   cells[currentLaser].classList.remove('laser');
-//   currentLaser -= width;
-//   cells[currentLaser].classList.add('laser');
-//   if (cells[currentLaser].classList.contains('invader')) {
-//     cells[currentLaser].classList.remove('laser');
-//     cells[currentLaser].classList.remove('invader');
-//     // cells[currentLaser].classList.add('boom')
+class Laser {
+  constructor(position) {
+    this.position = position;
+    this.intervalId = null;
+    this.renderposition();
+    this.move();
+  }
 
-//     const alienTakenDown = Alien.indexOf(currentLaser);
-//     alienTakenDown.push(alienTakenDown);
-//     result++;
-//     resultDisplay.textContent = result;
-//   }
+  addToBoard(position) {
+    cells[position].classList.add('laser');
+  }
 
-//   if (currentLaser < width) {
-//     clearInterval(laserId);
-//     setTimeout(() => cells[currentLaser].classList.remove('laser'), 100);
-//   }
-// }
+  removeFromBoard(position) {
+    cells[position].classList.remove('laser');
+  }
 
-//   switch (key) {
-//     case 'SpaceBar':
-//       setInterval(() => {
-//         removelaser(laserPosition);
-//         laserPosition = width;
-//         addlaser(laserPosition);
-//         clearInterval();
+  renderposition() {
+    this.addToBoard(this.position);
+  }
 
-// console.log('laser');
+  newPosition() {
+    const newPosition = this.position - height;
 
-var laserPosition = 'laser';
-laserPosition; // arr
+    if (newPosition >= 0) {
+      this.removeFromBoard(this.position);
+      this.position = newPosition;
+      this.addToBoard(this.position);
+    } else {
+      clearInterval(this.intervalId);
+      this.removeFromBoard(this.position);
+    }
+  }
 
-let lasertiming = 300;
-
-function laser(event) {
-  let laserPosition = alienPositions;
-  const { key } = event;
-
-  switch (key) {
-    case 'SpaceBar':
-      setInterval(() => {
-        removelaser(laserPosition);
-        laserPosition -= width;
-        addlaser(laserPosition);
-        clearInterval();
-
-        if (laserPosition === alienPositions)
-          () => {
-            laserPosition === [removelaser];
-            cells[index].classList.remove(laserPosition)('laser');
-            () => cells[laserPosition].classList.remove('laser');
-          };
-      }, 150);
-      break;
+  move() {
+    this.intervalId = setInterval(this.newPosition.bind(this), 300);
   }
 }
 
-console.log('laser');
+const handleSpaceBarKeyPress = (event) => {
+  const key = event.code;
 
-const addlaser = (index) => cells[index].classList.add('laser');
+  if (key === 'Space') {
+    console.log({ shooterPosition });
 
-// TODO:
+    const laserInitialPosition = shooterPosition - height;
 
-// Desaparecer aliens cuando sean disparados
-// Score
+    const laser = new Laser(laserInitialPosition);
+  }
+};
 
-{
-}
-
-// // ...
-// var scoreText;
-// var score = 0;
-// function create() scoreText = game.add.text(5, 5, 'Points: 0', { font: '18px Arial', fill: '#0095DD' });
+window.addEventListener('keyup', handleSpaceBarKeyPress);
