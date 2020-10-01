@@ -232,13 +232,6 @@ const getAlienPositions = () => {
   return alienPositions;
 };
 
-let score = 0;
-
-const sumPointsToScore = () => {
-  score = score + 100;
-  console.log({ score });
-};
-
 class Laser {
   constructor(position) {
     this.position = position;
@@ -286,6 +279,15 @@ class Laser {
     this.intervalId = setInterval(this.newPosition.bind(this), 300);
   }
 }
+
+const scoreElement = document.querySelector('#score');
+
+let score = 0;
+
+const sumPointsToScore = () => {
+  score = score + 100;
+  scoreElement.innerText = score;
+};
 
 const handleSpaceBarKeyPress = (event) => {
   const key = event.code;

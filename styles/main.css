@@ -26,6 +26,7 @@ body {
   padding: 30px;
   margin-left: 110px;
 }
+
 .grid div {
   border: 1px solid lightgrey;
   height: 52px;
@@ -43,6 +44,7 @@ h1 {
   background-image: url('../imagenes/shooter.png');
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
   cursor: pointer;
 }
 
@@ -56,4 +58,8 @@ h1 {
   background-image: url('../imagenes/laser.png');
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
+}
+
+@media screen and (max-width: 600px) and (orientation: landscape) {
 }
