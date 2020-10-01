@@ -224,6 +224,14 @@ setInterval(randomMovement, 400);
 // Laser
 /**************************************** */
 
+const getAlienPositions = () => {
+  const alienPositions = aliens.map((alien) => {
+    return alien.position;
+  });
+
+  return alienPositions;
+};
+
 class Laser {
   constructor(position) {
     this.position = position;
@@ -246,6 +254,8 @@ class Laser {
 
   newPosition() {
     const newPosition = this.position - height;
+    const alienPositions = getAlienPositions();
+    const isPositionAnAlien = alienPositions.includes(newPosition);
 
     if (newPosition >= 0) {
       this.removeFromBoard(this.position);
@@ -254,6 +264,13 @@ class Laser {
     } else {
       clearInterval(this.intervalId);
       this.removeFromBoard(this.position);
+    }
+
+    if (isPositionAnAlien) {
+      const alienToKillIndex = alienPositions.indexOf(newPosition);
+      aliens.splice(alienToKillIndex, 1);
+      clearInterval(this.intervalId);
+      this.removeFromBoard(newPosition);
     }
   }
 
