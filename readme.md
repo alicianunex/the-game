@@ -2,11 +2,11 @@
 
 ## What is it?
 
-This is the classic Space Invaders Pokemon styled
+This is the classic "Space Invaders" game made Pokemon styled
 
 ### Technologies
 
-HTLM CSS JS and lots of love
+Huge amount of JS, HTML5, some CSS and lots of love.
 
 ### How to play
 
