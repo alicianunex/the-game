@@ -1,16 +1,17 @@
-# Pokemon Invaders
+Pokemon Invaders
 
 ## What is it?
 
-This is the classic Space Invaders Pokemon styled
+This is the classic "Space Invaders" game made Pokemon styled
 
 ### Technologies
 
-HTLM CSS JS and lots of love
+Huge amount of JS, HTML5, some CSS and lots of love.
 
-### How to install
+### How to play
 
-### How to run
+Press SpaceBar to shoot and
+⬅️ ➡️ to move
 
 ## Documentation
 

@@ -2,6 +2,8 @@
   box-sizing: border-box;
 }
 
+/* @import url('../PokemonHollow.ttf'); */
+
 body {
   font-size: 100%;
   /* position: sticky; */
@@ -19,29 +21,29 @@ body {
   justify-content: center;
   height: 600px;
   width: 600px;
-  background-image: url(../imagenes/fondo4.jpg);
+  background-image: url(../imagenes/fondo1.jpg);
   align-items: center;
   justify-content: center;
   background-size: cover;
   padding: 30px;
   margin-left: 110px;
+  box-shadow: 0, 10, 5 turquoise;
 }
 
 .grid div {
-  border: 1px solid lightgrey;
+  border: 1px solid rgba(149, 186, 216, 0.253);
   height: 52px;
   width: 52px;
 }
 
 h1 {
   background-attachment: fixed;
-  background-color: rgba(95, 114, 139, 0.514);
+  background-color: rgba(95, 114, 139, 0.411);
   font-variant: small-caps;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Pokemon Hollow;
 }
-
 .grid div.shooter {
-  background-image: url('../imagenes/shooter.png');
+  background-image: url('../imagenes/shooter2.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -67,7 +69,7 @@ h1 {
 }
 
 .grid div.laser {
-  background-image: url('../imagenes/laser.png');
+  background-image: url('../imagenes/laser4.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

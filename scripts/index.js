@@ -207,6 +207,8 @@ const randomMovement = () => {
   // Genera un numero aleatorio
   const randomNumber = getRandomNumber();
 
+  congratulations();
+  //  congratulations.querySelector
   // Evalua si es par
   if (isEven(randomNumber)) {
     // Si es par mueve a la derecha
@@ -284,10 +286,24 @@ const scoreElement = document.querySelector('#score');
 
 let score = 0;
 
+let winner = '#youwin';
+
 const sumPointsToScore = () => {
   score = score + 100;
   scoreElement.innerText = score;
 };
+
+let modal = document.getElementById('score');
+
+function congratulations() {
+  if (score === 3000) {
+    // winner = 'youwin.png';
+    // document.querySelector
+    alert('You win');
+    clearInterval(interval);
+    finalTime = scoreElement.innerHTML;
+  }
+}
 
 const handleSpaceBarKeyPress = (event) => {
   const key = event.code;
