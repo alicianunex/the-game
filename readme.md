@@ -13,6 +13,9 @@ Huge amount of JS, HTML5, some CSS and lots of love.
 Press SpaceBar to shoot and
 ⬅️ ➡️ to move
 
+### To play follow this link
+https://alicianunezisaac.github.io/the-game/
+
 ## Documentation
 
 [requirements](./docs/readme.md)
