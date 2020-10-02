@@ -1,4 +1,4 @@
-https://raw.githubusercontent.com/alicianunezisaac/the-game/master/imagenes/title.png
+Pokemon Invaders
 
 ## What is it?
 
