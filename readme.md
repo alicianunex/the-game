@@ -1,4 +1,4 @@
-# Pokemon Invaders
+![image](./imagenes/title.png)
 
 ## What is it?
 
@@ -16,6 +16,8 @@ Press SpaceBar to shoot and
 ### To play follow this link
 https://alicianunezisaac.github.io/the-game/
 
-## Documentation
+### Documentation
 
 [requirements](./docs/readme.md)
+
+
