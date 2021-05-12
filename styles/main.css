@@ -77,3 +77,22 @@ h1 {
 
 @media screen and (max-width: 600px) and (orientation: landscape) {
 }
+.clock,
+h2 {
+  position: absolute;
+  top: 90%;
+  left: 48%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 50px;
+  letter-spacing: 7px;
+  font-family: monospace;
+  color: rgb(36, 39, 92);
+  text-shadow: 1px 2px rgb(20, 23, 61);
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 40px;
+  color: rgb(49, 19, 49);
+  text-shadow: none;
+}
